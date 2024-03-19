@@ -145,7 +145,7 @@ function createRequestService({
       ...data.headers,
     };
     const request: IRequest = {
-      method: data.method.toUpperCase(),
+      method: data.method ? data.method.toUpperCase() : "GET",
       headers: headers,
     };
 
