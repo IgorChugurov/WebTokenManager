@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 interface IRequestParams {
   url: string;
-  method: string;
+  method?: string;
   body?: any;
   queryString?: any;
   multipart?: boolean;
@@ -153,7 +153,7 @@ function createRequestService({
       delete request.headers["Content-Type"];
     }
 
-    if (data.method.toUpperCase() !== "GET" && data.body) {
+    if (data.method && data.method.toUpperCase() !== "GET" && data.body) {
       request["body"] = data.multipart ? data.body : JSON.stringify(data.body);
     }
     const user = getUser();
