@@ -72,8 +72,8 @@ function createRequestService({
       } catch (error) {
         console.error("Failed to refresh token:", error);
         accessTokenPromise = null;
-        setUser(null);
-        window.location.href = "/";
+        //setUser(null);
+        //window.location.href = "/";
         throw error;
         // clear the old promise so that the next request can start trying to update the token again
       }
