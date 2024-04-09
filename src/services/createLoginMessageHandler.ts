@@ -22,7 +22,18 @@ const createLoginMessageHandler =
       event.data.type === "userDataFromAuthServer"
     ) {
       const user = event.data.user;
-      localStorage.setItem(lskey, JSON.stringify(user));
+      let userFromLS = localStorage.getItem(lskey) || {};
+      localStorage.setItem(
+        lskey,
+        JSON.stringify({
+          ...userFromLS,
+          token: user.token,
+          accessToken: user.accessToken,
+          email: user.email,
+        })
+      );
+      //localStorage.setItem(lskey, JSON.stringify(user));
+
       callback(event.data);
     }
   };

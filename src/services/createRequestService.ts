@@ -123,7 +123,15 @@ function createRequestService({
       if (response.status < 300) {
         try {
           const d = await response.json();
-          setUser(d);
+
+          const u = getUser() || {};
+          setUser({
+            ...u,
+            token: user.token,
+            accessToken: user.accessToken,
+            email: user.email,
+          });
+          //setUser(d);
         } catch (error) {
           console.log(error);
           throw error;
