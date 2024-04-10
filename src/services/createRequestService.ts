@@ -123,13 +123,12 @@ function createRequestService({
       if (response.status < 300) {
         try {
           const d = await response.json();
-
           const u = getUser() || {};
           setUser({
             ...u,
-            token: user.token,
-            accessToken: user.accessToken,
-            email: user.email,
+            token: d.token,
+            accessToken: d.accessToken,
+            email: d.email,
           });
           //setUser(d);
         } catch (error) {
