@@ -28,7 +28,7 @@ const createLoginMessageHandler =
         JSON.stringify({
           ...userFromLS,
           token: user.token,
-          accessToken: user.accessToken,
+          refreshToken: user.refreshToken,
           email: user.email,
         })
       );
