@@ -1,6 +1,6 @@
 {
   "name": "requestwithrefreshtoken",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
   "description": "request function for using with refresh token",
   "main": "src/index.ts",

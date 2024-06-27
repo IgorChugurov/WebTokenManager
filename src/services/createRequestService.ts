@@ -191,11 +191,11 @@ function createRequestService({
     }
     if (data.limit) {
       const addChar = params ? "&" : "?";
-      params += `${addChar}perPage=${data.limit}`;
+      params += `${addChar}limit=${data.limit}`;
     }
     if (data.skip) {
       const addChar = params ? "&" : "?";
-      params += `${addChar}perPage=${data.skip}`;
+      params += `${addChar}skip=${data.skip}`;
     }
     if (data.search) {
       const addChar = params ? "&" : "?";
