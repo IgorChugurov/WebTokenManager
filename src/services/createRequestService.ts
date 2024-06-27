@@ -9,6 +9,8 @@ interface IRequestParams {
   perPage?: number;
   search?: string;
   headers?: { [key: string]: string };
+  limit?: number;
+  skip?: number;
 }
 type HeadersType = Record<string, string>;
 interface IRequest {
@@ -186,6 +188,14 @@ function createRequestService({
     if (data.perPage) {
       const addChar = params ? "&" : "?";
       params += `${addChar}perPage=${data.perPage}`;
+    }
+    if (data.limit) {
+      const addChar = params ? "&" : "?";
+      params += `${addChar}perPage=${data.limit}`;
+    }
+    if (data.skip) {
+      const addChar = params ? "&" : "?";
+      params += `${addChar}perPage=${data.skip}`;
     }
     if (data.search) {
       const addChar = params ? "&" : "?";
